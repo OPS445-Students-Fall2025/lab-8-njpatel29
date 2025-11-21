@@ -1,0 +1,50 @@
+[WARNING]: Found both group and host with same name: vmlab
+
+PLAY [Configure OPS445 CentOS7 VM for lab use] *********************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vmlab]
+
+TASK [Ensure EPEL repository is present] ***************************************
+ok: [vmlab]
+
+TASK [Update/upgrade httpd to latest] ******************************************
+changed: [vmlab]
+
+TASK [Remove the 'tree' package if present] ************************************
+ok: [vmlab]
+
+TASK [Set the hostname to the Seneca ID] ***************************************
+changed: [vmlab]
+
+TASK [Create the Seneca user and add to wheel group] ***************************
+changed: [vmlab]
+
+TASK [Ensure wheel group has passwordless sudo (drop-in)] **********************
+changed: [vmlab]
+
+TASK [Ensure .ssh directory exists for the new user] ***************************
+changed: [vmlab]
+
+TASK [Add control machine public key to new user's authorized_keys] ************
+changed: [vmlab]
+
+TASK [Create ops445 lab directories using a loop] ******************************
+changed: [vmlab] => (item=1)
+changed: [vmlab] => (item=2)
+changed: [vmlab] => (item=3)
+changed: [vmlab] => (item=4)
+changed: [vmlab] => (item=5)
+changed: [vmlab] => (item=6)
+changed: [vmlab] => (item=7)
+changed: [vmlab] => (item=8)
+
+TASK [Ensure /etc/motd contains a warning] *************************************
+changed: [vmlab]
+
+TASK [Ensure httpd service is started and enabled] *****************************
+changed: [vmlab]
+
+PLAY RECAP *********************************************************************
+vmlab                      : ok=12   changed=9    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
